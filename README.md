@@ -11,12 +11,16 @@ To initialize the QuickPopDataStructure, you need to provide a Comparator<T> obj
 ## Push Method
 
   The push() method time complexity is 0(1) 
-  `quickPushDataStructure.push()`
+  ```java
+  quickPushDataStructure.push(5)
+  ```
   
   
 ## Pop Method
   The pop() method time complexity is 0(n) 
-  `quickPushDataStructure.pop()`
+  ```java
+  quickPushDataStructure.pop()
+  ```
 
 ## Implementation Details
   This implementation uses a binary semaphore to signal when the data structure is not empty, and a mutex lock to ensure thread safety when accessing the data structure.
@@ -37,12 +41,16 @@ To initialize the QuickPopDataStructure, you need to provide a Comparator<T> obj
 ## Push Method
 
   The push() method time complexity is 0(1) 
-  `quickPopDataStructure.push()`
+  ```java
+  quickPushDataStructure.push(5)
+  ```
   
   
 ## Pop Method
   The pop() method time complexity is 0(n) 
-  `quickPopDataStructure.pop()`
+  ```java
+  quickPushDataStructure.pop()
+  ```
 
 ## Implementation Details
   This implementation uses a binary semaphore to signal when the data structure is not empty, and a mutex lock to ensure thread safety when accessing the data structure.
