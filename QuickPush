@@ -1,0 +1,46 @@
+package il.co.lird.FS133.Projects.Zemingo;
+
+import il.co.lird.FS133.Projects.Novidea.QuickPushOrderedList;
+import sun.awt.Mutex;
+import java.util.concurrent.Semaphore;
+
+public class QuickPushDataStructure <T extends Comparable<T>> implements Comparable<QuickPushDataStructure<T>>{
+    private final Semaphore semaphore = new Semaphore(0);
+    private final Mutex lock = new Mutex();
+    private Node head = null;
+    @Override
+    public int compareTo(QuickPushDataStructure<T> tQuickPushDataStructure) {
+        return 0;
+    }
+
+    private class Node {
+        private final T data;
+        private Node next;
+        private Node prev;
+        private Node(T data){
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+
+    public void push(T data) {
+        lock.lock();
+        Node frontNode = new Node(data);
+        frontNode.next = head;
+        head = frontNode;
+        lock.unlock();
+        semaphore.release();
+    }
+
+    public void pop(){
+        try {
+            semaphore.acquire();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+}
+
